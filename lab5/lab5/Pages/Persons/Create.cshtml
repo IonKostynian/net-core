@@ -1,0 +1,44 @@
+﻿@page
+@model lab5.Pages.Persons.CreateModel
+
+<h1>Add new person</h1>
+<form method="post">
+  <div class="form-group row">
+	  <label>Name</label>
+	  <div class="col-sm-10">
+		  <input asp-for="person.Name" />
+		  <span asp-validation-for="person.Name"></span>
+	  </div>
+  </div>
+  <div class="form-group row">
+		<label>Address</label>
+		<div class="col-sm-10">
+			<input asp-for="person.Address" />
+			<span asp-validation-for="person.Address"></span>
+		</div>
+  </div>
+   <div class="form-group row">
+		<label>Phone Number</label>
+		<div class="col-sm-10">
+			<input asp-for="person.PhoneNumber" />
+			<span asp-validation-for="person.PhoneNumber"></span>
+		</div>
+  </div>
+  <div class="form-group row">
+		<label>Birthday</label>
+		<div class="col-sm-10">
+			<input asp-for="person.Birthday" min = 1/>
+			<span asp-validation-for="person.Birthday"></span>
+		</div>
+  </div>
+  <div class="form-group row">
+		<label>Ticket Number</label>
+		<div class="col-sm-10">
+			<input asp-for="person.TicketNumber" min = 1/>
+			<span asp-validation-for="person.TicketNumber"></span>
+		</div>
+  </div>
+  <div class="col-sm-10 pt-2">
+	  <button type="submit">Add person</button>
+  </div>
+</form>

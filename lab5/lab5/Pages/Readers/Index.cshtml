@@ -1,0 +1,40 @@
+﻿@page
+@model lab5.Pages.Readers.IndexModel
+
+<div class="d-flex justify-content-between align-items-center pb-2">
+    <h1>Readers</h1>
+    <a asp-page="Create" class="btn btn-success">Add reader</a>
+</div>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Person</th>
+      <th scope="col">Book</th>
+      <th scope="col">Date of issue</th>
+      <th scope="col">Date return</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(var reader in Model.Readers)
+        {
+            <tr>
+                <th scope="row">
+                    @reader.Person.Name
+                </th>
+                <td>
+                    @reader.Book.Name
+                </td>
+                <td>
+                    @reader.IssueDate.ToLongDateString()
+                </td>
+                <td>
+                    @reader.ReturnDate.ToShortDateString()
+                </td>
+                <td>
+                    <a asp-page="Delete" asp-route-id="@reader.Id" class="btn btn-danger">Delete reader</a>
+                </td>
+            </tr>
+        }
+  </tbody>
+</table>
