@@ -1,0 +1,59 @@
+﻿@page "/person/delete/{id:int}"
+@using lab6.Data
+@inject IPersonServices personService
+@inject NavigationManager navigationManager
+<h1>Delete book</h1>
+<EditForm Model="person" OnSubmit="DeletePerson">
+	<InputNumber @bind-Value="person.Id" hidden />
+  <div class="form-group row">
+	  <label>Name</label>
+	  <div class="col-sm-10">
+		  <InputText @bind-Value="person.Name" disabled />
+	  </div>
+  </div>
+  <div class="form-group row">
+		<label>Address</label>
+		<div class="col-sm-10">
+			<InputText @bind-Value="person.Address" disabled />
+		</div>
+  </div>
+   <div class="form-group row">
+		<label>Phone Number</label>
+		<div class="col-sm-10">
+			<InputText @bind-Value="person.PhoneNumber" disabled />
+		</div>
+  </div>
+  <div class="form-group row">
+		<label>Birthday</label>
+		<div class="col-sm-10">
+			<InputDate @bind-Value="person.Birthday" disabled />
+		</div>
+  </div>
+  <div class="form-group row">
+		<label>Ticket Number</label>
+		<div class="col-sm-10">
+			<InputNumber @bind-Value="person.TicketNumber" disabled />
+		</div>
+  </div>
+  <div class="col-sm-10 pt-2">
+	  <button type="submit">Delete</button>
+  </div>
+</EditForm>
+@code {
+	[Parameter]
+	public int? Id { get; set; }
+	Person person = new Person();
+
+	protected override async Task OnParametersSetAsync()
+	{
+		if(Id != null)
+		{
+			person = await personService.GetPerson((int)Id);
+		}
+	}
+	public async Task DeletePerson()
+	{
+		await personService.Delete(person.Id);
+		navigationManager.NavigateTo("/persons");
+	}
+}
