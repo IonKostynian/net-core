@@ -1,10 +1,9 @@
-﻿@page "/person/edit/{id:int}"
-@using lab6.Data
+﻿@page "/person"
+@using lab7.Client.Pages.Persons
 @inject IPersonServices personService
 @inject NavigationManager navigationManager
-<h1>Edit person</h1>
-<EditForm Model="person" OnSubmit="EditPerson">
-	<InputNumber @bind-Value="person.Id" hidden />
+<h1>Create person</h1>
+<EditForm Model="person" OnSubmit="CreatePerson">
   <div class="form-group row">
 	  <label>Name</label>
 	  <div class="col-sm-10">
@@ -38,24 +37,15 @@
   <DataAnnotationsValidator />
   <ValidationSummary />
   <div class="col-sm-10 pt-2">
-	  <button type="submit">Edit person</button>
+	  <button type="submit">Add person</button>
   </div>
 </EditForm>
 @code {
-	[Parameter]
-	public int? Id { get; set; }
 	Person person = new Person();
 
-	protected override async Task OnParametersSetAsync()
+	public async Task CreatePerson()
 	{
-		if(Id != null)
-		{
-			person = await personService.GetPerson((int)Id);
-		}
-	}
-	public async Task EditPerson()
-	{
-		await personService.Edit(person, person.Id);
+		await personService.Create(person);
 		navigationManager.NavigateTo("/persons");
 	}
 }

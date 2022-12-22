@@ -1,0 +1,46 @@
+﻿@page "/persons"
+@using lab7.Client.Pages.Persons
+@inject IPersonServices personService
+<div class="d-flex justify-content-between align-items-center pb-2">
+    <h1>Persons</h1>
+    <a href="/person" class="btn btn-success">Add person</a>
+</div>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Ticket Number</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+       @foreach(var person in personService.persons)
+        {
+            <tr>
+                <th scope="row">@person.Name</th>
+                <td>@person.Address</td>
+                <td>@person.PhoneNumber</td>
+                <td>@person.Birthday.ToShortDateString()</td>
+                <td>@person.TicketNumber</td>
+                <td>
+                    <a href="person/edit/@person.Id" class="btn btn-secondary">Edit person</a>
+                </td>
+                <td>
+                    <a href="person/delete/@person.Id" class="btn btn-danger">Delete person</a>
+                </td>
+            </tr>
+        }
+  </tbody>
+</table>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await personService.GetPersons();
+    }
+}

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab7.Server", "Server\lab7.Server.csproj", "{847C9979-ECD9-4FDD-AD22-A60A6A68BFA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab7.Client", "Client\lab7.Client.csproj", "{AB602DAF-D4ED-495F-8BCC-05C3CDB583FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab7.Shared", "Shared\lab7.Shared.csproj", "{F33DA806-ADFA-4DEE-8526-EBA78BA4DBC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{847C9979-ECD9-4FDD-AD22-A60A6A68BFA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847C9979-ECD9-4FDD-AD22-A60A6A68BFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847C9979-ECD9-4FDD-AD22-A60A6A68BFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{847C9979-ECD9-4FDD-AD22-A60A6A68BFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB602DAF-D4ED-495F-8BCC-05C3CDB583FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB602DAF-D4ED-495F-8BCC-05C3CDB583FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB602DAF-D4ED-495F-8BCC-05C3CDB583FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB602DAF-D4ED-495F-8BCC-05C3CDB583FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33DA806-ADFA-4DEE-8526-EBA78BA4DBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33DA806-ADFA-4DEE-8526-EBA78BA4DBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33DA806-ADFA-4DEE-8526-EBA78BA4DBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33DA806-ADFA-4DEE-8526-EBA78BA4DBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {800F62F4-E19D-40C4-914F-224DD7325A37}
+	EndGlobalSection
+EndGlobal

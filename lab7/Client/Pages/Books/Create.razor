@@ -1,10 +1,11 @@
-﻿@page "/book/edit/{id:int}"
-@using lab6.Data
+﻿@page "/book"
+@using lab7.Client.Pages.Books
 @inject IBookServices bookService
 @inject NavigationManager navigationManager
-<h1>Edit book</h1>
-<EditForm Model="book" OnSubmit="EditBook">
-	<InputNumber @bind-Value="book.Id" hidden />
+<h1>Add book</h1>
+<EditForm Model="book" OnSubmit="CreateBook">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
 	<div class="form-group row">
 	  <label>Name</label>
 	  <div class="col-sm-10">
@@ -23,27 +24,16 @@
 			<InputNumber @bind-Value="book.Price"/>
 		</div>
   </div>
-  <DataAnnotationsValidator />
-  <ValidationSummary />
   <div class="col-sm-10 pt-2">
-	  <button type="submit">Edit book</button>
+	  <button type="submit">Add book</button>
   </div>
 </EditForm>
 @code {
-	[Parameter]
-	public int? Id { get; set; }
 	Book book = new Book();
 
-	protected override async Task OnParametersSetAsync()
+	public async Task CreateBook()
 	{
-		if(Id != null)
-		{
-			book = await bookService.GetBook((int)Id);
-		}
-	}
-	public async Task EditBook()
-	{
-		await bookService.Edit(book, book.Id);
+		await bookService.Create(book);
 		navigationManager.NavigateTo("/books");
 	}
 }

@@ -1,7 +1,8 @@
 ﻿@page "/books"
-@using lab6.Data
-@inject IBookServices bookService
-@if(bookService.books == null)
+@using lab7.Client.Pages.Books
+
+@inject IBookServices BookService
+@if(BookService.books.Count == 0)
 {
     <h3>Loading...</h3>
 }
@@ -22,11 +23,11 @@ else
     </tr>
   </thead>
   <tbody>
-       @foreach(var book in bookService.books)
+       @foreach(var book in BookService.books)
         {
             <tr>
                 <th scope="row">
-                    @book.Name
+                    @book.
                 </th>
                 <td>
                     @book.Author
@@ -48,6 +49,6 @@ else
 @code {
     protected override async Task OnInitializedAsync()
     {
-        await bookService.GetBooks();
+       await BookService.GetBooks();
     }
 }

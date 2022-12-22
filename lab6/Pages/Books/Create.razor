@@ -4,6 +4,8 @@
 @inject NavigationManager navigationManager
 <h1>Add book</h1>
 <EditForm Model="book" OnSubmit="CreateBook">
+	<DataAnnotationsValidator />
+	<ValidationSummary />
 	<div class="form-group row">
 	  <label>Name</label>
 	  <div class="col-sm-10">
@@ -22,8 +24,6 @@
 			<InputNumber @bind-Value="book.Price"/>
 		</div>
   </div>
-  	<DataAnnotationsValidator />
-	<ValidationSummary />
   <div class="col-sm-10 pt-2">
 	  <button type="submit">Add book</button>
   </div>
